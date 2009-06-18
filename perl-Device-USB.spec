@@ -1,19 +1,19 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_with	tests		# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Device
 %define	pnam	USB
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
-Version:	0.27
+Version:	0.29
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GW/GWADEJ/Device-USB-%{version}.tar.gz
-# Source0-md5:	bc341793a6ec5ffcce4380cbee6e35ba
+# Source0-md5:	34dff1d278c5496069ad73a1ef956bf4
 URL:		http://search.cpan.org/dist/Device-USB/
 BuildRequires:	libusb-devel
 BuildRequires:	perl-Inline
