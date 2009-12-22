@@ -21,6 +21,7 @@ BuildRequires:	perl-Inline-C
 BuildRequires:	perl-Parse-RecDescent
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,6 +33,11 @@ more Perl-ish interface.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+
+# function names conflict with libusb-1.0
+sed -e 's/libusb_/DeviceUSB_/g' -i lib/Device/USB.pm lib/Device/USB/Device.pm
+rm USB.pm
+ln -s lib/Device/USB.pm .
 
 %build
 export LIBUSB_LIBDIR="%{_libdir}"
