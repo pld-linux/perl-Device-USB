@@ -7,15 +7,15 @@
 %define	pnam	USB
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
-Version:	0.29
+Version:	0.30
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GW/GWADEJ/Device-USB-%{version}.tar.gz
-# Source0-md5:	34dff1d278c5496069ad73a1ef956bf4
+# Source0-md5:	1ac773545ed5cbf3ad390ddf87a677d6
 URL:		http://search.cpan.org/dist/Device-USB/
-BuildRequires:	libusb-devel
+BuildRequires:	libusb-compat-devel
 BuildRequires:	perl-Inline
 BuildRequires:	perl-Inline-C
 BuildRequires:	perl-Parse-RecDescent
@@ -34,9 +34,10 @@ more Perl-ish interface.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
+export LIBUSB_LIBDIR="%{_libdir}"
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make}
+%{__make} -j1
 
 %{?with_tests:%{__make} test}
 
