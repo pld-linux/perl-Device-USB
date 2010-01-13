@@ -15,7 +15,11 @@ Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GW/GWADEJ/Device-USB-%{version}.tar.gz
 # Source0-md5:	1ac773545ed5cbf3ad390ddf87a677d6
 URL:		http://search.cpan.org/dist/Device-USB/
+%if "%{pld_release}" == "ac"
+BuildRequires:	libusb-devel < 1.0
+%else
 BuildRequires:	libusb-compat-devel
+%endif
 BuildRequires:	perl-Inline
 BuildRequires:	perl-Inline-C
 BuildRequires:	perl-Parse-RecDescent
