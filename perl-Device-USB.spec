@@ -7,13 +7,13 @@
 %define	pnam	USB
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
-Version:	0.30
+Version:	0.33
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GW/GWADEJ/Device-USB-%{version}.tar.gz
-# Source0-md5:	1ac773545ed5cbf3ad390ddf87a677d6
+# Source0-md5:	a3a9e89c61093f428e1c2440d9187fb1
 URL:		http://search.cpan.org/dist/Device-USB/
 %if "%{pld_release}" == "ac"
 BuildRequires:	libusb-devel < 1.0
