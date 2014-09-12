@@ -67,6 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Device/USB
 %attr(755,root,root) %{perl_vendorarch}/Device/dump_usb.pl
 %dir %{perl_vendorarch}/auto/Device/USB
-%{perl_vendorarch}/auto/Device/USB/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Device/USB/*.so
 %{_mandir}/man3/*
