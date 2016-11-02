@@ -7,13 +7,13 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
-Version:	0.35
-Release:	8
+Version:	0.36
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/G/GW/GWADEJ/Device-USB-%{version}.tar.gz
-# Source0-md5:	8ce79b0c26336dafd3d29f8cb534a925
+# Source0-md5:	aa91bee777f7ed7a18225a84f8795344
 URL:		http://search.cpan.org/dist/Device-USB/
 %if "%{pld_release}" == "ac"
 BuildRequires:	libusb-devel < 1.0
