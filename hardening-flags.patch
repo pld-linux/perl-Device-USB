@@ -1,0 +1,44 @@
+Description: pass *FLAGS to compiler and linker for hardening
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2013-10-28
+
+--- a/lib/Device/USB.pm
++++ b/lib/Device/USB.pm
+@@ -4,6 +4,7 @@
+ use warnings;
+ use strict;
+ use Carp;
++use Config;
+ 
+ use Inline (
+         C => "DATA",
+@@ -15,6 +16,8 @@
+         ($ENV{LIBUSB_INCDIR} ? ( INC => "-I\"$ENV{LIBUSB_INCDIR}\"" ) : () ),
+         NAME => 'Device::USB',
+         VERSION => '0.36',
++        CCFLAGS => "$Config{ccflags} $ENV{CFLAGS} $ENV{CPPFLAGS}",
++        LDDLFLAGS => "$Config{lddlflags} $ENV{LDFLAGS}",
+    );
+ 
+ Inline->init();
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -1,6 +1,7 @@
+ use strict;
+ use warnings;
+ use Inline::MakeMaker;
++use Config;
+ 
+ sub MY::libscan {
+ 	return if ($_[1] eq 'USB.pm' or $_[1] eq 'dump_usb.pl');
+@@ -71,6 +72,8 @@
+         "ExtUtils::MakeMaker" => 0,
+         'Inline::MakeMaker' => 0,
+     },
++    CCFLAGS => "$Config{ccflags} $ENV{CFLAGS} $ENV{CPPFLAGS}",
++    LDFLAGS => "$Config{lddlflags} $ENV{LDFLAGS}",
+ );
+ 
+ 
