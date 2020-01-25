@@ -4,7 +4,6 @@
 
 %define		pdir	Device
 %define		pnam	USB
-%include	/usr/lib/rpm/macros.perl
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
 Version:	0.36
