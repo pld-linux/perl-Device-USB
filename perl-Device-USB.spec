@@ -39,9 +39,9 @@ more Perl-ish interface.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 # function names conflict with libusb-1.0
 sed -e 's/libusb_/DeviceUSB_/g' -i lib/Device/USB.pm lib/Device/USB/Device.pm
