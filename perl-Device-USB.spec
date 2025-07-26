@@ -7,7 +7,7 @@
 Summary:	Device::USB - Use libusb to access USB devices
 Name:		perl-Device-USB
 Version:	0.36
-Release:	10
+Release:	11
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
